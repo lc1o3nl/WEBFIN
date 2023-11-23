@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .card {
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        .btn {
+    font-size: 6px;
+    padding: 10px 18px; 
+}
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+
+        }
+
+        .card {
+            border-radius: 15px;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .sidebar-element:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        footer h4 {
+            color: #ffc107;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffc107;
+        }
+
+        a.news-link {
+    font-size: 18px; 
+    color: #04b98f; 
+    text-decoration: none; 
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="l-head-light__logo">
+        <a class="b-head-logo" href="index.html">
+            <img src="https://asia24.media/include/header/logo.svg" alt="Logo" style="height: 38px;">
+        </a>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">News Website</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="world.html">World</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+                </ul> 
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signinModal">Sign In</button>
+            
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <form id="filterForm">
+                    <div class="form-group">
+                        <label for="releaseDate">Фильтровать по дате выпуска:</label>
+                        <input type="date" class="form-control" id="releaseDate">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="filterNews()">Фильтровать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card" data-release-date="2023-11-06">
+                    <img src="assets/news1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Эксперт: «Следующий этап террористической активности будет происходить на
+                            базе беспилотных технологий»
+                            В Центральной Азии постепенно растет напряженность, связанная с водным вопросом, особенно в
+                            контексте строительства Афганистаном канала Куштепа</h2>
+                        <p class="card-text">
+                            В Центральной Азии постепенно растет напряженность, связанная с водным вопросом, особенно в контексте строительства Афганистаном канала Куштепа В Центральной Азии постепенно ...</p>
+                            <p>06.11.2023</p>
+                        <a href="https://asia24.media/countries/uzbekistan/uzbekistan-i-rossiya-dogovorilis-ob-uvelichenii-vzaimnykh-aviareysov-s-rossiey/"
+                            class="btn btn-primary">Читать далее</a>
+                    </div>
+                </div>
+
+                <div class="card" data-release-date="2023-11-05">
+                    <img src="assets/news2.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Токаев говорит:</h2>
+                        <p class="card-text">Токаев: «Казахcтан не является анти-Россией, мы твердо придерживаемся курса
+                            на всестороннее сотрудничество с Россией»
+                            По словам президента республики, санкционное противостояние является абсолютно
+                            контрпродуктивным с точки зрения оздоровления международных отношений. </p>
+                        <p>05.11.2023</p>
+                        <a href="https://asia24.media/countries/uzbekistan/ushcherb-ot-vzryva-v-tashkente-povrezhdeny-592-kvartiry-8-ofisov-1-shkola-i-2-detskikh-sada/"
+                            class="btn btn-primary">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 sidebar-element" data-release-date="2023-11-06">
+                    <div class="card-body" >
+                        <h2 class="card-title">Новость дня 1:</h2>
+                        <p class="card-text">Поездки россиян в Беларусь будут считаться внутренним туризмом</p>
+                    </div>
+                </div>
+
+                <div class="card mb-4 sidebar-element" data-release-date="2023-11-06">
+                    <div class="card-body" >
+                        <h2 class="card-title">Новость дня 2:</h2>
+                        <p class="card-text">ВЭФ-2023: «Автоваз» планирует увеличить объем экспорта в страны СНГ</p>
+                    </div>
+                </div>
+
+                <div class="card mb-4 sidebar-element" data-release-date="2023-11-06">
+                    <div class="card-body" >
+                        <h2 class="card-title">Новость дня 3:</h2>
+                        <p class="card-text">Надежда на Россию: нехватку зерна в Казахстане планируют компенсировать из РФ</p>
+                    </div>
+                </div>
+
+                <div class="card mb-4 sidebar-element" data-release-date="2023-11-06">
+                    <div class="card-body" >
+                        <h2 class="card-title">Новость дня 4:</h2>
+                        <p class="card-text">Сбер вновь запустил переводы из России на карты Visa и MasterCard в Казахстан</p>
+                    </div>
+                </div>
+
+                <div class="card mb-4 sidebar-element" data-release-date="2023-11-06">
+                    <div class="card-body" >
+                        <h2 class="card-title">Новость дня 5:</h2>
+                        <p class="card-text">«Россия – царство насилия»: как Эйдельман казахов истории учила</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container mt-4">
+    <h2>Краткие резюме новостей</h2>
+    <ul id="newsList" class="list-group">
+
+    </ul>
+</div>
+
+
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body" id="newsModalBody"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="signupForm">
+                    <div class="mb-3">
+                        <label for="signupUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signupUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signupEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signinModalLabel">Sign In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="signinForm">
+                    <div class="mb-3">
+                        <label for="signinUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="signinUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signinPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signinPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Contact Us</h4>
+                    <p>
+                        Address: 51 Mangilik, Astana, Kazakhstan<br>
+                        Email: contact@example.com<br>
+                        Phone: +123 456 789
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="world.html">World</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Social Media</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://ru-ru.facebook.com/">Facebook</a></li>
+                        <li><a href="https://twitter.com/?lang=ru">Twitter</a></li>
+                        <li><a href="https://ru.linkedin.com/">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const socialLinks = document.querySelectorAll("footer ul.list-unstyled a");
+
+        socialLinks.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetLink = link.getAttribute("href");
+
+                const countdownElement = document.createElement("div");
+                countdownElement.style.position = "fixed";
+                countdownElement.style.top = "0";
+                countdownElement.style.left = "0";
+                countdownElement.style.width = "100%";
+                countdownElement.style.backgroundColor = "#343a40";
+                countdownElement.style.color = "white";
+                countdownElement.style.textAlign = "center";
+                countdownElement.style.fontSize = "24px";
+                countdownElement.style.padding = "10px";
+                countdownElement.innerText = "Redirecting in 5 seconds...";
+
+                document.body.appendChild(countdownElement);
+
+                let countdown = 5;
+
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    countdownElement.innerText = `Redirecting in ${countdown} seconds...`;
+
+                    if (countdown === 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = targetLink;
+                    }
+                }, 1000);
+            });
+        });
+
+    function filterNews() {
+    const selectedDate = document.getElementById("releaseDate").value;
+    const newsCards = document.querySelectorAll('.card');
+
+    newsCards.forEach(card => {
+        const newsDate = card.getAttribute('data-release-date');
+
+        if (selectedDate && newsDate !== selectedDate) {
+            card.style.display = 'none';
+        } else {
+            card.style.display = 'block';
+        }
+    });
+}
+
+const newsData = [
+    {
+        title: "Кремль анонсировал визит Путина в Казахстан",
+        content: "Президент России Владимир Путин встретится с главой Казахстана Касым-Жомартом Токаевым на следующей неделе. Сроки визита главы государства стали известны журналистам кремлевского пула РИА Новости.",
+        url: "https://asia24.media/news24/kreml-anonsiroval-vizit-putina-v-kazakhstan/" 
+    },
+    {
+        title: "Погода, в странах Центральной Азии, 5 ноября 2023 года: в Ташкенте +22, в Астане +3",
+        content: "Синоптики обнародовали прогноз погоды в республиках Центральной Азии на сегодня, 5 ноября 2023 года.",
+        url: "https://asia24.media/news24/pogoda-v-stranakh-tsentralnoy-azii-5-noyabrya-2023-goda-v-tashkente-22-v-astane-3/" 
+    },
+    {
+        title: "Казахстанская демократия захлопнулась: власти Алматы засекретили информацию о строящихся зданиях",
+        content: "Власти Алматы засекретили информацию обо всем, что собираются построить в городе. Найти эскиз строящегося здания на сайте генплана мегаполиса, чтобы высказать свое мнение о нем теперь просто невозможно.",
+        url: "https://asia24.media/news24/kazakhstanskaya-demokratiya-zakhlopnulas-vlasti-almaty-zasekretili-informatsiyu-o-stroyashchikhsya-z/" 
+    },
+    {
+        title: "Иносми: Макрон приземлится на «заднем дворе Путина» в поисках новых друзей и урана",
+        content: "Провокационный заголовок американского издания bloomberg взбудоражил Казнет. Освещая приезд Макрона в Казахстан, информагентство назвало нашу страну «задним двором России». Реакция казахстанцев последовала сразу, они тут же начали писать свое мнение в комментариях, пишет Оrda.kz.",
+        url: "https://asia24.media/news24/inosmi-makron-prizemlitsya-na-zadnem-dvore-putina-v-poiskakh-novykh-druzey-i-urana-/" 
+    },
+    {
+        title: "Токаев на шпагате: мастер-класс политической гимнастики с французским акцентом",
+        content: "«ВЭС 24» собрал наиболее интересные заявления экспертов, политиков и чиновников по поводу визита Макрона в Казахстан. Мы же, со своей стороны, снимаем шляпу перед Астаной, поскольку ее «многовекторная» эквилибристика продолжает худо ли бедно, но работать.",
+        url: "https://asia24.media/main/tokaev-na-shpagate-master-klass-politicheskoy-gimnastiki-s-frantsuzskim-aktsentom/" 
+    },
+];
+
+
+const newsList = document.getElementById("newsList");
+newsData.forEach((news, index) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list-group-item");
+    
+    const newsLink = document.createElement("a");
+    newsLink.href = news.url;
+    newsLink.textContent = news.title; 
+    newsLink.classList.add("news-link");
+    
+    listItem.appendChild(newsLink);
+    newsList.appendChild(listItem);
+});
+
+
+function showNewsDetails(index) {
+    const modalTitle = document.getElementById("newsModalLabel");
+    const modalBody = document.getElementById("newsModalBody");
+    
+    modalTitle.textContent = newsData[index].title;
+    modalBody.textContent = newsData[index].content;
+}
+
+
+const signupForm = document.getElementById("signupForm");
+const signinForm = document.getElementById("signinForm");
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+        document.body.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            if (event.target.id === 'signupForm') {
+                const username = document.getElementById('signupUsername').value;
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+
+
+                const user = {
+                    username: username,
+                    email: email,
+                    password: password
+                };
+
+
+                localStorage.setItem('user', JSON.stringify(user));
+
+                const signupModal = new bootstrap.Modal(document.getElementById('signupModal'));
+                signupModal.hide();
+            }
+
+
+            if (event.target.id === 'signinForm') {
+            const signinUsername = document.getElementById('signinUsername').value;
+            const signinPassword = document.getElementById('signinPassword').value;
+
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            if (signinUsername === 'admin' && signinPassword === 'admin') {
+                alert('Admin Sign In Successful!');
+
+                window.location.href = 'adminpanel.html';
+            } else if (storedUser && storedUser.username === signinUsername && storedUser.password === signinPassword) {
+                alert('User Sign In Successful!');
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid Username or Password');
+            }
+
+            const signinModal = new bootstrap.Modal(document.getElementById('signinModal'));
+            signinModal.hide();
+        }
+    });
+});
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const newsLabels = document.querySelectorAll('.news-link');
+    const newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
+
+    newsLabels.forEach((label, index) => {
+        label.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            showNewsDetails(index);
+
+            newsModal.show();
+        });
+    });
+
+    function showNewsDetails(index) {
+        const modalTitle = document.getElementById('newsModalLabel');
+        const modalBody = document.getElementById('newsModalBody');
+
+        modalTitle.textContent = newsData[index].title;
+        modalBody.textContent = newsData[index].content;
+    }
+});
+    </script>
+    
+
+</body>
+
+</html>

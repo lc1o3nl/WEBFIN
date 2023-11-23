@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <h1>Welcome to Admin Panel</h1>
+
+    <h2>Authorized Users:</h2>
+    <ul id="userList"></ul>
+
+    <h2>Actions:</h2>
+    <button onclick="addUser()">Add User</button>
+    <button onclick="updateUser()">Update User</button>
+    <button onclick="deleteUser()">Delete User</button>
+
+    <script>
+
+        const user = JSON.parse(localStorage.getItem('user')) || [];
+
+        const userList = document.getElementById('userList');
+        user.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Username: ${user.username}, Email: ${user.email}`;
+            userList.appendChild(listItem);
+        });
+
+        function addUser() {
+            const username = prompt('Enter username:');
+            const email = prompt('Enter email:');
+            const password = prompt('Enter password:');
+
+            if (username && email && password) {
+                user.push({ username, email, password });
+                localStorage.setItem('user', JSON.stringify(user));
+                location.reload(); 
+            } else {
+                alert('Invalid input. User not added.');
+            }
+        }
+
+
+        function updateUser() {
+            const usernameToUpdate = prompt('Enter username of the user to update:');
+            const userToUpdate = user.find(user => user.username === usernameToUpdate);
+
+            if (userToUpdate) {
+                const newPassword = prompt('Enter new password:');
+                if (newPassword) {
+                    userToUpdate.password = newPassword;
+                    localStorage.setItem('user', JSON.stringify(user));
+                    location.reload(); 
+                } else {
+                    alert('Invalid input. Password not updated.');
+                }
+            } else {
+                alert('User not found.');
+            }
+        }
+
+
+        function deleteUser() {
+            const usernameToDelete = prompt('Enter username of the user to delete:');
+            const userIndex = user.findIndex(user => user.username === usernameToDelete);
+
+            if (userIndex !== -1) {
+                user.splice(userIndex, 1);
+                localStorage.setItem('user', JSON.stringify(user));
+                location.reload(); 
+            } else {
+                alert('User not found.');
+            }
+        }
+    </script>
+</body>
+
+</html>
